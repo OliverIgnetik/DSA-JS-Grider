@@ -14,6 +14,37 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = '';
+    for (let col = 0; col < n; col++) {
+      if (col <= row) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
+    }
+    console.log([...stair].reverse().join('') + stair.slice(1));
+  }
+}
 
+function pyramid_recursion(n) {
+  return pyramid_recursion_(n, 0, 0);
+}
+function pyramid_recursion_(n, row, column, level = '') {
+  const width = 2 * n - 1;
+  const midpoint = Math.floor(width / 2);
+  if (row === n) return;
+  if (column === width) {
+    console.log(level);
+    return pyramid_recursion_(n, row + 1, 0);
+  }
+  let add;
+  if (column >= midpoint - row && column <= midpoint + row) add = level + '#';
+  else add = level + ' ';
+
+  return pyramid_recursion_(n, row, column + 1, add);
+}
+
+pyramid_recursion(2);
 module.exports = pyramid;

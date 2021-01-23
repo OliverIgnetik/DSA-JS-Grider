@@ -4,7 +4,7 @@
   "description": "Coding Bootcamp Interview Stephen Grider",
   "main": "index.js",
   "scripts": {
-    "test": "jest exercises/anagrams/test.js --watch"
+    "test": "jest exercises/qfroms/test.js --watch"
   },
   "author": "Oliver Ignetik",
   "license": "ISC",

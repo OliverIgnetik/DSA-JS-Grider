@@ -36,7 +36,7 @@ class LinkedList {
     const removed = this.head;
     this.head = removed.next;
     this.size--;
-    return;
+    return removed;
   }
   insertFirst(data) {
     const newNode = new Node(data);
@@ -117,7 +117,7 @@ class LinkedList {
     return newNode;
   }
 
-  // for each
+  // for each apply function on each node
   forEach(fn) {
     let node = this.head;
     let counter = 0;
@@ -128,7 +128,7 @@ class LinkedList {
     }
   }
 
-  // for of
+  // for of operator syntax
   *[Symbol.iterator]() {
     let node = this.head;
     while (node) {
