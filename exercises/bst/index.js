@@ -37,6 +37,23 @@ class Node {
       }
   }
 
+  insert_recursion(cur, data) {
+    if (data < cur.data) {
+      // base case
+      if (cur.left === undefined || cur.left === null) {
+        cur.left = new Node(data, null, null);
+        return cur.left;
+      } else return this.insert_recursion(cur.left, data);
+    } else if (data > cur.data) {
+      // base case
+      if (cur.right === undefined || cur.right === null) {
+        cur.right = new Node(data, null, null);
+        return cur.right;
+      } else return this.insert_recursion(cur.right, data);
+      // third base case
+    } else return Error('Node already in tree');
+  }
+
   contains(data) {
     let cur = this;
     while (true) {
@@ -56,7 +73,7 @@ class Node {
 const BST = new Node(5, null, null);
 BST.insert(3);
 BST.insert(8);
-BST.insert(1);
+BST.insert_recursion(BST, 1);
 BST.insert(9);
 
 module.exports = Node;
