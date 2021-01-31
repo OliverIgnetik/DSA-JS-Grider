@@ -60,6 +60,4 @@ function merge(left, right) {
   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
-const arr = [100, -40, 500, -124, 0, 21, 7];
-
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
