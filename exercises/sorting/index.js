@@ -2,8 +2,8 @@
 // Implement bubbleSort, selectionSort, and mergeSort
 
 function bubbleSort(arr) {
-  let swapped = false;
   for (let i = arr.length - 1; i > 1; i--) {
+    let swapped = false;
     for (let j = 0; j < i; j++) {
       if (arr[j + 1] < arr[j]) {
         swapped = true;
@@ -18,6 +18,7 @@ function bubbleSort(arr) {
 }
 
 // O(N^2) with less memory writing then bubblesort
+// the reduction in writing memory is the main advantage
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let min_index = i;
@@ -31,6 +32,8 @@ function selectionSort(arr) {
   return arr;
 }
 
+// O(NlogN) time complexity
+// O(N) space complexity
 function mergeSort(array) {
   if (array.length === 1) {
     return array;
@@ -59,5 +62,11 @@ function merge(left, right) {
 
   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
+
+const arr = [4, 1, 9, 12, 3];
+
+console.log('====================================');
+console.log(selectionSort(arr));
+console.log('====================================');
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
